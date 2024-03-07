@@ -1,12 +1,19 @@
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme,
+} from '@react-navigation/native';
 import React from 'react';
 import AppNavigator from '../AppNavigator';
 import AuthNavigator from '../AuthNavigator';
-const token = 'abc';
+import {useTheme} from '../../theme/useTheme';
+
 const RootNavigator = () => {
+  const {theme} = useTheme();
   return (
-    <NavigationContainer>
-      {token ? <AppNavigator /> : <AuthNavigator />}
+    <NavigationContainer
+      theme={theme?.name === 'light' ? DefaultTheme : DarkTheme}>
+      {'' ? <AppNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 };

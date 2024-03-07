@@ -1,22 +1,11 @@
-import {View, Text, Pressable} from 'react-native';
-import React, {useState} from 'react';
-import {useTheme} from '../../theme/useTheme';
-import Layout from '../../components/Layout';
+import {Text, Pressable} from 'react-native';
+import React from 'react';
 
 const AppNavigator = () => {
-  const {theme, toggleTheme} = useTheme();
-  const [themeChange, setThemeChange] = useState(false);
-
-  const handleThemeChange = () => {
-    toggleTheme(themeChange);
-    setThemeChange(!themeChange);
-  };
   return (
-    <Layout>
-      <Pressable onPress={handleThemeChange}>
-        <Text>Change Theme </Text>
-      </Pressable>
-    </Layout>
+    <Pressable>
+      <Text>Change Theme </Text>
+    </Pressable>
   );
 };
 

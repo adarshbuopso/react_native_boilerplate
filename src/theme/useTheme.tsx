@@ -40,12 +40,9 @@ export const ThemeProvider = ({
 // useTheme hook for easy access to theme and setTheme
 export const useTheme = () => {
   const state = React.useContext(ThemeContext);
-
   const {theme, setTheme} = state;
-
-  const toggleTheme = (v: boolean) => {
-    setTheme(v ? themes.dark : themes.light);
+  const toggleTheme = () => {
+    setTheme(theme.name === 'light' ? themes.dark : themes.light);
   };
-
   return {theme, toggleTheme};
 };
